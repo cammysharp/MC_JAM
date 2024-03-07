@@ -25,6 +25,7 @@ from mgefit.sectors_photometry_twist import sectors_photometry_twist
 from mgefit.mge_print_contours_twist import mge_print_contours_twist
 from mgefit.mge_fit_sectors_regularized import mge_fit_sectors_regularized
 
+import scipy.optimize as opt
 
 
 
