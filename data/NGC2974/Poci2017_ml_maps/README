@@ -1,0 +1,38 @@
+###############################################################################
+This directory contains two-dimensional maps of the mass-to-light ratio (M/L)
+for all galaxies in the Atlas3D sample (Cappellari et al., 2011). The M/L
+values are fit for in pPXF (Cappellari & Emsellem, 2004). Each observed
+spectrum (binned to a minimum S/N) from the SAURON IFU is fit to the Single
+Stellar Population (SSP) template library of Vazdekis et al. (2012), which vary
+in age and stellar metallicity, assuming a constant Salpeter Initial Mass
+Function (IMF). This process, and the application of these maps, are described
+in detail in Poci et al. (2017) and references therein.
+
+References
+----------
+Cappellari et al., 2011, MNRAS, 413, 813,
+    DOI://10.1111/j.1365-2966.2010.18174.x
+
+Cappellari M., Emsellem E., 2004, PASP, 116, 138, DOI://10.1086/381875
+
+Poci A., Cappellari M., McDermid R.M., 2017, MNRAS, 467, 1397,
+    DOI://10.1093/mnras/stx101
+
+Vazdekis A., Ricciardelli E., Cenarro A. J., Rivero-Gonzalez J. G.,
+    Diaz-Garcia L. A., Falcon-Barroso J., 2012, MNRAS, 424, 157,
+    DOI://10.1111/j.1365-2966.2012.21179.x
+
+###############################################################################
+    
+Fits Table Format
+-----------------
+XGEN        (N,)E       // The x-coordinate bin generators
+YGEN        (N,)E       // The y-coordinate bin generators
+XBIN        (N,)E       // The x-coordinate bin centres
+YBIN        (N,)E       // The y-coordinate bin centres
+MLSTARR     (N,)E       // The M/L value for each bin in r-band, solar units
+DRML        (N,)E       // The error in `MLSTARR`
+------------------------//
+N - Number of bins
+
+###############################################################################
