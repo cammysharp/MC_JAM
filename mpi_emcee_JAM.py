@@ -29,6 +29,8 @@ os.environ['OPENBLAS_NUM_THREADS'] = '1'
 
 from os import path
 
+pathname='/fred/oz059/cammy/MC_JAM/NGC2974/'
+
 def dark_halo_gNFW_MGE(gamma,lg_rbreak,lg_rho_s):
     start=time.time()
     rbreak,rho_s=10**lg_rbreak,10**lg_rho_s
@@ -182,7 +184,7 @@ def lnprob(pars):
 
 
 def get_fitz():
-    hdul = fits.open("/Users/48105686/Documents/MC_JAM/data/NGC2974/PXF_bin_MS_NGC2974_r5_idl.fits.gz")
+    hdul = fits.open(pathname+"PXF_bin_MS_NGC2974_r5_idl.fits.gz")
     hdul.info()
     #print(hdul[1].header)
     data=hdul[1].data
@@ -196,7 +198,7 @@ def get_fitz():
     return xbin,ybin,rms,erms,distance,V
 
 def get_mass_lum():
-    surf_lum, sigma_lum, qobs_lum, surf_mass=np.load("/Users/48105686/Documents/MC_JAM/data/NGC2974/mgeparameters_NGC2974.npy")
+    surf_lum, sigma_lum, qobs_lum, surf_mass=np.load(pathname+"mgeparameters_NGC2974.npy")
    
     return surf_lum, sigma_lum, qobs_lum, surf_mass
 
@@ -371,7 +373,7 @@ ndim = len(initial)
 
 p0 = [initial + 0.2*numpy.random.randn(ndim) for i in range(nwalkers)]
     
-filename='fdenfmc_JAM_out_NGC2974.h5'
+filename=pathname+'mc_JAM_out_NGC2974.h5'
           
 with MPIPool() as pool:
     if not pool.is_master():
@@ -399,6 +401,6 @@ plt.clf()
 
 
 
-#hf= h5py.File('test_out.h5','w')
+#hf= h5py.File(/fred/oz059/cammy/MC_JAM/NGC2974/+'test_out.h5','w')
 #hf.create_dataset('sampler',data=sampler)
 
